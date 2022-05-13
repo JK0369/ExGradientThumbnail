@@ -61,7 +61,7 @@ class ViewController: UIViewController {
     let shape = CAShapeLayer()
     shape.lineWidth = Constant.borderWidth
     shape.path = UIBezierPath(
-      roundedRect: self.containerView.bounds.insetBy(dx: Constant.borderWidth + 5, dy: Constant.borderWidth + 5),
+      roundedRect: self.containerView.bounds.insetBy(dx: Constant.borderWidth, dy: Constant.borderWidth),
       cornerRadius: Constant.thumbnailSize / 2.0
     ).cgPath
     shape.strokeColor = UIColor.black.cgColor

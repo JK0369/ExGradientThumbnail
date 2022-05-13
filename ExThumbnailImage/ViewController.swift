@@ -54,20 +54,20 @@ class ViewController: UIViewController {
     super.viewDidLayoutSubviews()
     guard self.containerView.layer.sublayers?.contains(where: { $0 is CAGradientLayer }) == false else { return }
 
-let gradient = CAGradientLayer()
-gradient.frame = CGRect(origin: CGPoint.zero, size: Constant.thumbnailCGSize)
-gradient.colors = [UIColor.blue, UIColor.green].map(\.cgColor)
+    let gradient = CAGradientLayer()
+    gradient.frame = CGRect(origin: CGPoint.zero, size: Constant.thumbnailCGSize)
+    gradient.colors = [UIColor.blue, UIColor.green].map(\.cgColor)
 
-let shape = CAShapeLayer()
-shape.lineWidth = Constant.borderWidth
-shape.path = UIBezierPath(
-  roundedRect: self.containerView.bounds.insetBy(dx: Constant.borderWidth + 5, dy: Constant.borderWidth + 5),
-  cornerRadius: Constant.thumbnailSize / 2.0
-).cgPath
-shape.strokeColor = UIColor.black.cgColor
-shape.fillColor = UIColor.clear.cgColor
-gradient.mask = shape
+    let shape = CAShapeLayer()
+    shape.lineWidth = Constant.borderWidth
+    shape.path = UIBezierPath(
+      roundedRect: self.containerView.bounds.insetBy(dx: Constant.borderWidth + 5, dy: Constant.borderWidth + 5),
+      cornerRadius: Constant.thumbnailSize / 2.0
+    ).cgPath
+    shape.strokeColor = UIColor.black.cgColor
+    shape.fillColor = UIColor.clear.cgColor
+    gradient.mask = shape
 
-self.containerView.layer.addSublayer(gradient)
+    self.containerView.layer.addSublayer(gradient)
   }
 }

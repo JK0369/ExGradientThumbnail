@@ -52,7 +52,10 @@ class ViewController: UIViewController {
   
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
-    guard self.containerView.layer.sublayers?.contains(where: { $0 is CAGradientLayer }) == false else { return }
+    guard
+      self.containerView.bounds != .zero,
+      self.containerView.layer.sublayers?.contains(where: { $0 is CAGradientLayer }) == false
+    else { return }
 
     let gradient = CAGradientLayer()
     gradient.frame = CGRect(origin: CGPoint.zero, size: Constant.thumbnailCGSize)
